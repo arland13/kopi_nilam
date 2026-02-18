@@ -40,21 +40,21 @@
             <img src="images/50gr.webp" alt="Bubuk Kopi Nilam 500g" width="300px" height="300px">
             <h3>Kopi Nilam Robusta 50g isi 10 (500g)</h3>
             <h4 class="price">Rp 80.000</h4>
-            <a href="https://wa.me/6285365775410" class="btn">Pesan Sekarang</a>
+            <button class="btn order-btn">Pesan Sekarang</button>
         </div>
 
         <div class="product-card">
             <img src="images/bubuk-kopi-165g.webp" alt="Bubuk Kopi Nilam 165g" width="300px" height="300px">
             <h3>Kopi Nilam Robusta 165g</h3>
             <h4 class="price">Rp 40.000</h4>
-            <a href="https://wa.me/6285365775410" class="btn">Pesan Sekarang</a>
+            <button class="btn order-btn">Pesan Sekarang</button>
         </div>
 
         <div class="product-card">
             <img src="images/gula-semut200gwebp.webp" alt="Bubuk Kopi Nilam 200g" width="300px" height="300px">
             <h3>Kopi Nilam Robusta 200g</h3>
             <h4 class="price">Rp 40.000</h4>
-            <br><a href="https://wa.me/6285365775410" class="btn">Pesan Sekarang</a>
+            <br><button class="btn order-btn">Pesan Sekarang</button>
         </div>
 
         <div class="bean-animation">
@@ -72,21 +72,21 @@
             <img src="images/bubuk-kopi220g.webp" alt="Bubuk Kopi Nilam 220g" width="300px" height="300px">
             <h3>Kopi Nilam Robusta 220g</h3>
             <h4 class="price">Rp 32.500</h4>
-            <br><a href="https://wa.me/6285365775410" class="btn">Pesan Sekarang</a>
+            <br><button class="btn order-btn">Pesan Sekarang</button>
         </div>
 
         <div class="product-card">
             <img src="images/bubuk-kopi-880g.webp" alt="Bubuk Kopi Nilam 880g" width="300px" height="300px">
             <h3>Kopi Nilam Robusta 880g</h3>
             <h4 class="price">Rp 130.000</h4>
-            <br><a href="https://wa.me/6285365775410" class="btn">Pesan Sekarang</a>
+            <br><button class="btn order-btn">Pesan Sekarang</button>
         </div>
 
         <div class="product-card">
             <img src="images/bubuk-kopi1kg.webp" alt="Bubuk Kopi Nilam 1kg" width="300px" height="300px" >
             <h3>Kopi Nilam Robusta 1kg</h3>
             <h4 class="price">Rp 185.000</h4>
-            <br><a href="https://wa.me/6285365775410" class="btn">Pesan Sekarang</a>
+            <br><button class="btn order-btn">Pesan Sekarang</button>
         </div>
 
         <div class="roast-animation">
@@ -108,7 +108,7 @@
             <img src="images/biji-kopi-robusta-premium165g.webp" alt="Biji Kopi Robusta 165g" width="300px" height="300px">
             <h3>Biji Kopi Robusta Premium 165g</h3>
             <br><h4 class="price">Rp 40.000</h4>
-            <br><a href="https://wa.me/6285365775410" class="btn">Pesan Sekarang</a>
+            <br><button class="btn order-btn">Pesan Sekarang</button>
         </div>
 
         <div class="product-card">
@@ -117,7 +117,7 @@
                 <br> Asli Batusangkar 200g
             </h3>
             <h4 class="price">Rp 17.000</h4>
-            <br><a href="https://wa.me/6285365775410" class="btn">Pesan Sekarang</a>
+            <br><button class="btn order-btn">Pesan Sekarang</button>
         </div>
 
         <div class="product-card">
@@ -126,7 +126,7 @@
                 <br> Asli Batusangkar 1kg
             </h3>
             <h4 class="price">Rp 67.000</h4>
-            <br><a href="https://wa.me/6285365775410" class="btn">Pesan Sekarang</a>
+            <br><button class="btn order-btn">Pesan Sekarang</button>
         </div>
 
         <div class="sun-animation">
@@ -142,10 +142,31 @@
         <div class="product-card">
             <img src="images/bandrex-instan125g.webp" alt="Bandrex 125g" width="300px" height="300px">
             <h3>Bandrex Instan 125g</h3>
-            <br><a href="https://wa.me/6285365775410" class="btn">Pesan Sekarang</a>
+            <br><button class="btn order-btn">Pesan Sekarang</button>
         </div>
 
     </section>
+
+    <script>
+        const phoneNumber = "6285365775410";
+
+        document.querySelectorAll(".order-btn").forEach(button => {
+            button.addEventListener("click", function () {
+            const card = this.closest(".product-card");
+            const productName = card.querySelector("h3").innerText;
+            const price = card.querySelector(".price") 
+                            ? card.querySelector(".price").innerText 
+                            : "";
+
+            const message = `Halo, saya ingin pesan:\n\n${productName}\n${price}\n\nApakah masih tersedia?`;
+
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+            window.open(url, "_blank");
+            });
+        });
+    </script>
+
 
 </body>
 </html>
