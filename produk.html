@@ -101,6 +101,22 @@
         </div>
     </main>
 
+    <!-- FALLING COFFEE BEANS -->
+    <div class="beans-container"></div>
+
+    <script>
+        const container = document.querySelector('.beans-container');
+
+        for (let i = 0; i < 20; i++) {
+            let bean = document.createElement('div');
+            bean.classList.add('bean');
+            bean.style.left = Math.random() * 100 + 'vw';
+            bean.style.animationDuration = (5 + Math.random() * 5) + 's';
+            bean.style.opacity = Math.random();
+            container.appendChild(bean);
+        }
+    </script>
+
     <!-- FLOATING SOCIAL MEDIA -->
     <div class="social-float">
   
