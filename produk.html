@@ -2,11 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Produk - Nilam Brothers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nilam Brothers</title>
+
+    <!-- Same CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Same Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600;800&family=Pacifico&display=swap" rel="stylesheet">
 </head>
+
+<body>
+
+    <!-- HEADER (SAME AS INDEX) -->
     <header class="site-header">
         <div class="logo-wrapper">
             <img src="images/1000140568.png" class="logo1">
@@ -24,9 +32,9 @@
         </div>
     </header>
 
+    <!-- NAVBAR (SAME AS INDEX) -->
     <nav class="navbar">
         <div class="nav-container">
-            <!-- Menu -->
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="produk.html">Produk</a></li>
@@ -47,54 +55,51 @@
                     </div>
                 </li>
             </ul>
-
         </div>
     </nav>
-<body>
-    <!-- SLOGAN -->
-    <section class="slogan">
-        <h2>Manisnya Persaudaraan dalam Setiap Seduhan</h2>
-    </section>
 
-    <!-- SVG COFFEE CUP -->
-    <section class="coffee-section">
-        <div class="cup-wrapper">
-            <svg viewBox="0 0 200 200" class="coffee-cup">
-                <!-- Cup -->
-                <ellipse cx="100" cy="150" rx="60" ry="15" fill="#2E1F1A"/>
-                <rect x="40" y="90" width="120" height="60" rx="20" fill="#F3E5AB"/>
-                <ellipse cx="100" cy="90" rx="60" ry="20" fill="#4E342E"/>
-      
-                <!-- Handle -->
-                <path d="M160 105 Q190 120 160 140" 
-                    stroke="#F3E5AB" stroke-width="12" fill="none"/>
-      
-                <!-- Steam -->
-                <path class="steam" d="M85 60 Q95 40 85 20" />
-                <path class="steam" d="M105 60 Q115 40 105 20" />
-                <path class="steam" d="M125 60 Q135 40 125 20" />
-            </svg>
+    <main class="produk-main">
+
+        <!-- TAGLINE SECTION -->
+        <section class="produk-tagline">
+            <h1>Produk</h1>
+            <h2 class="produk-brand">
+                <span class="brand-nilam">Nilam</span>
+                <span class="brand-brothers">Brothers</span>
+            </h2>
+            <p>
+                Semua Produk NILAM Brothers memiliki kualitas yang selalu dijaga dari kemasan dan rasa sehingga menghasilkan produk yang baik bagi konsumen kita.
+            </p>
+        </section>
+
+        <div class="produk-container">
+
+            <div class="produk-card">
+                <img src="images/kopi_bubuk.PNG" alt="Kopi Bubuk Robusta">
+                <h2>Kopi Bubuk Robusta</h2>
+                <p>
+                    Produk kopi bubuk dari NILAM Brothers ini dikemas dalam kantong aluminium foil premium yang menjaga aroma tetap segar dan kualitasnya tahan lebih lama.
+                </p>
+            </div>
+
+            <div class="produk-card">
+                <img src="images/gula-semut200gwebp.webp" alt="Gula Semut Aren">
+                <h2>Gula Semut Aren</h2>
+                <p>
+                    Gula semut produksi NILAM Brothers ini hadir dalam kemasan standing pouch hitam premium berlabel kuning-coklat yang elegan.
+                </p>
+            </div>
+
+            <div class="produk-card">
+                <img src="images/bandrex-instan125g.webp" alt="Bandrek Instan">
+                <h2>Bandrek Instan</h2>
+                <p>
+                    Bandrek Instan NILAM Brothers dikemas dalam botol plastik bening dengan tutup coklat, menampilkan warna bubuk rempah yang khas.
+                </p>
+            </div>
+
         </div>
-    </section>
-
-    <!-- BATIK DIVIDER -->
-    <div class="batik-divider"></div>
-
-    <!-- COFFEE BEANS -->
-    <div class="beans-container"></div>
-
-    <script>
-        const container = document.querySelector('.beans-container');
-
-        for (let i = 0; i < 20; i++) {
-            let bean = document.createElement('div');
-            bean.classList.add('bean');
-            bean.style.left = Math.random() * 100 + 'vw';
-            bean.style.animationDuration = (5 + Math.random() * 5) + 's';
-            bean.style.opacity = Math.random();
-            container.appendChild(bean);
-    }
-    </script>
+    </main>
 
     <!-- FLOATING SOCIAL MEDIA -->
     <div class="social-float">
@@ -116,16 +121,18 @@
 
     </div>
 
+    <!-- HAMBURGER SCRIPT (REQUIRED FOR MOBILE) -->
     <script>
         const hamburger = document.getElementById("hamburger");
         const navMenu = document.getElementById("navMenu");
         const body = document.body;
 
         hamburger.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-        hamburger.classList.toggle("active");
-        body.classList.toggle("menu-open");
+            navMenu.classList.toggle("active");
+            hamburger.classList.toggle("active");
+            body.classList.toggle("menu-open");
         });
     </script>
+
 </body>
 </html>

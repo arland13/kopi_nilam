@@ -1,555 +1,640 @@
 body {
   margin: 0;
-  font-family: 'Playfair Display', serif;
-  background: #2E1A18;
+  font-family: 'EB Garamond', serif;
+  background: linear-gradient(to bottom, #1E1410 0%, #2E1F1A 40%, #4E342E 100%);
+  color: #F3E5AB;
+  overflow-x: hidden;
+  position: relative;
 }
 
-.products {
-  padding: 60px 20px;
-  text-align: center;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
-  max-width: 1200px;
-  margin: auto;
+.mobile-social {
+  display: none;
 }
 
-.products > .product-card:last-child {
-  grid-column: 1 / -1;
-  width: 300px;
-  justify-self: center;
+/* Wooden texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+  opacity: 0.08;
+  z-index: -2;
 }
 
-.product-card {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 25px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  transition: all 0.3s ease;
+/* Coffee steam animation */
+body::after {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(243,229,171,0.2) 0%, transparent 70%);
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: blur(100px);
+  animation: steam 10s infinite alternate ease-in-out;
+  z-index: -1;
 }
 
-.product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+@keyframes steam {
+  0% { transform: translateX(-50%) translateY(0px); }
+  100% { transform: translateX(-50%) translateY(-60px); }
 }
 
-.product-card {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 25px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  transition: all 0.3s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-}
-
-.price {
-  color: #4B2E2B;
-  font-size: 20px;
-  margin: 10px 0;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 12px 25px;
-  background: #4B2E2B;
-  color: white;
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #D6B370;
-  color: #3B201F;
-}
-
-
+/* HEADER */
 .site-header {
+  position: relative;
   text-align: center;
-  padding: 50px 20px;
-  background: #3B201F;
-  color: #F5E6CA;
-}
-
-.top-text {
-  margin: 0;
-  letter-spacing: 4px;
-  font-size: 16px;
-  text-transform: uppercase;
+  padding: 120px 20px 80px;
+  background-image: url("images/header_background.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #F3E5AB;
+  overflow: hidden;
 }
 
 .logo-wrapper {
-  margin: 25px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
 }
 
 .logo1 {
-  width: 140px;
-  height: 140px;
+  width: 85px;
+  height: 85px;
   border-radius: 50%;
   object-fit: contain;
+  border: 3px solid #8D6E63;
 }
 
-.brand-name {
-  margin: 0;
-  font-size: 36px;
-  letter-spacing: 3px;
-}
-
-.est-wrapper {
-  margin-top: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-}
-
-.line {
-  width: 50px;
-  height: 1px;
-  background-color: #D6B370;
-}
-
-.est {
-  font-size: 14px;
-  letter-spacing: 4px;
-  color: #D6B370;
-  font-style: italic;
-}
-
-/* Coffee Animation Section */
-.coffee-animation {
+/* LOGO TEXT */
+.logo-text {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #4B2E2B, #3B201F);
-  color: #F5E6CA;
-  border-radius: 25px;
-  padding: 50px 30px;
-  min-height: 280px;
-  grid-column: 1 / -1; /* make it full width */
 }
 
-.coffee-animation h2 {
-  margin: 15px 0 5px;
+.nilam {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #F3E5AB;
 }
 
-.tagline {
-  font-size: 14px;
-  letter-spacing: 2px;
-  color: #D6B370;
-}
-
-/* Cup */
-.cup {
-  width: 100px;
-  height: 70px;
-  background: white;
-  border-radius: 0 0 50px 50px;
-  position: relative;
-  margin-bottom: 20px;
-}
-
-/* Handle */
-.cup::after {
-  content: "";
-  position: absolute;
-  right: -30px;
-  top: 10px;
-  width: 40px;
-  height: 40px;
-  border: 8px solid white;
-  border-radius: 50%;
-}
-
-/* Steam */
-.steam {
-  position: absolute;
-  width: 10px;
-  height: 40px;
-  background: rgba(255,255,255,0.6);
-  border-radius: 50%;
-  animation: rise 3s infinite ease-in-out;
-}
-
-.steam1 { left: 20px; animation-delay: 0s; }
-.steam2 { left: 45px; animation-delay: 0.5s; }
-.steam3 { left: 70px; animation-delay: 1s; }
-
-@keyframes rise {
-  0% {
-    opacity: 0;
-    transform: translateY(0) scaleX(1);
-  }
-  50% {
-    opacity: 0.6;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-60px) scaleX(1.4);
-  }
-}
-
-/* === Premium Bean Section === */
-
-.bean-animation {
-  grid-column: 1 / -1;
-  position: relative;
-  padding: 80px 20px;
-  text-align: center;
-  background: linear-gradient(135deg, #3B201F, #2E1A18);
-  color: #F5E6CA;
-  overflow: hidden;
-  border-radius: 30px;
-}
-
-.bean-animation h2 {
+.brothers {
+  font-family: 'Pacifico', cursive;
   font-size: 28px;
-  margin-bottom: 10px;
-  position: relative;
-  z-index: 2;
+  color: #D7A86E;
+  margin-top: -5px;
 }
 
-.bean-sub {
-  letter-spacing: 3px;
-  font-size: 13px;
-  color: #D6B370;
-  position: relative;
-  z-index: 2;
-}
-
-/* Coffee Beans */
-
-.bean {
-  position: absolute;
-  width: 35px;
-  height: 50px;
-  background: #1B0F0E;
-  border-radius: 50% 50% 45% 45%;
-  animation: floatUp 8s infinite linear;
-  opacity: 0;
-}
-
-/* Bean line */
-.bean::after {
+.site-header::before {
   content: "";
   position: absolute;
-  width: 4px;
-  height: 38px;
-  background: #4B2E2B;
-  left: 50%;
-  top: 6px;
-  transform: translateX(-50%);
-  border-radius: 3px;
-}
-
-/* Different positions & speeds */
-.bean1 { left: 10%; animation-delay: 0s; }
-.bean2 { left: 30%; animation-delay: 2s; }
-.bean3 { left: 50%; animation-delay: 4s; }
-.bean4 { left: 70%; animation-delay: 1s; }
-.bean5 { left: 85%; animation-delay: 3s; }
-
-@keyframes floatUp {
-  0% {
-    bottom: -80px;
-    transform: translateY(0) rotate(0deg) scale(0.8);
-    opacity: 0;
-  }
-  20% {
-    opacity: 0.8;
-  }
-  50% {
-    transform: translateY(-200px) rotate(180deg) scale(1);
-  }
-  100% {
-    bottom: 100%;
-    transform: translateY(-350px) rotate(360deg) scale(1.2);
-    opacity: 0;
-  }
-}
-
-/* === Cinematic Roast Section === */
-
-.roast-animation {
-  grid-column: 1 / -1;
-  position: relative;
-  padding: 90px 20px;
-  text-align: center;
-  background: radial-gradient(circle at bottom, #4B2E2B 0%, #2E1A18 70%);
-  color: #F5E6CA;
-  overflow: hidden;
-  border-radius: 30px;
-}
-
-/* Heat glow effect */
-.heat-glow {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 300px;
-  height: 150px;
-  background: radial-gradient(circle, rgba(214,179,112,0.6), transparent 70%);
-  animation: pulseHeat 3s ease-in-out infinite;
+  inset: 0;
+  background: rgba(30, 20, 15, 0.65);
+  backdrop-filter: blur(2px);
   z-index: 0;
 }
 
-/* Tray */
-.tray {
-  width: 220px;
-  height: 50px;
-  background: linear-gradient(145deg, #5C3A2E, #4A2D23);
-  border-radius: 50px;
+.logo-wrapper,
+.hamburger {
   position: relative;
-  margin: 0 auto 30px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-  animation: shakeTray 3s ease-in-out infinite;
   z-index: 2;
 }
 
-/* Roast Beans */
-.roast-bean {
+/* NAVBAR */
+.navbar {
+  background-color: #2E1F1A;
+  padding: 20px 0;
+  border-top: 2px solid #8D6E63;
+  border-bottom: 2px solid #8D6E63;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 45px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #F3E5AB;
+  font-size: 18px;
+  transition: 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: #D7A86E;
+}
+
+/* ========================= */
+/* SLOGAN */
+/* ========================= */
+.slogan {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.slogan h2 {
+  font-size: 28px;
+  font-style: italic;
+  color: #D7A86E;
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================= */
+/* COFFEE CUP */
+/* ========================= */
+.coffee-section {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.coffee-cup {
+  width: 250px;
+}
+
+.steam {
+  stroke: #F3E5AB;
+  stroke-width: 4;
+  fill: none;
+  opacity: 0.7;
+  animation: steamMove 3s infinite ease-in-out;
+}
+
+@keyframes steamMove {
+  0% { transform: translateY(0) scaleX(1); opacity: 0.7; }
+  50% { transform: translateY(-20px) scaleX(1.1); opacity: 0.4; }
+  100% { transform: translateY(-40px) scaleX(0.9); opacity: 0; }
+}
+
+/* ========================= */
+/* BATIK DIVIDER */
+/* ========================= */
+.batik-divider {
+  height: 40px;
+  background-image: url("https://www.transparenttextures.com/patterns/batik.png");
+  opacity: 0.3;
+  margin: 40px 0;
+}
+
+/* ========================= */
+/* FALLING COFFEE BEANS */
+/* ========================= */
+.beans-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.bean {
   position: absolute;
-  width: 25px;
-  height: 35px;
-  background: #1B0F0E;
-  border-radius: 50% 50% 45% 45%;
-  top: 8px;
-  animation: bounceBean 1.5s ease-in-out infinite;
+  width: 15px;
+  height: 20px;
+  background: #2E1F1A;
+  border-radius: 50% 50% 40% 40%;
+  animation: fall linear infinite;
 }
 
-/* Bean crack line */
-.roast-bean::after {
-  content: "";
-  position: absolute;
-  width: 3px;
-  height: 25px;
-  background: #4B2E2B;
-  left: 50%;
-  top: 4px;
-  transform: translateX(-50%);
-  border-radius: 2px;
+@keyframes fall {
+  from { transform: translateY(-50px) rotate(0deg); }
+  to { transform: translateY(100vh) rotate(360deg); }
 }
 
-/* Position beans */
-.rb1 { left: 30px; animation-delay: 0s; }
-.rb2 { left: 70px; animation-delay: 0.2s; }
-.rb3 { left: 110px; animation-delay: 0.4s; }
-.rb4 { left: 150px; animation-delay: 0.6s; }
-.rb5 { left: 185px; animation-delay: 0.8s; }
+/* ========================= */
+/* FLOATING SOCIAL BUTTONS */
+/* ========================= */
 
-.roast-sub {
-  letter-spacing: 3px;
-  font-size: 13px;
-  color: #D6B370;
-}
-
-/* Tray Shake */
-@keyframes shakeTray {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(1.5deg); }
-  50% { transform: rotate(0deg); }
-  75% { transform: rotate(-1.5deg); }
-  100% { transform: rotate(0deg); }
-}
-
-/* Bean Bounce */
-@keyframes bounceBean {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0); }
-}
-
-/* Heat pulse */
-@keyframes pulseHeat {
-  0% { opacity: 0.5; transform: translateX(-50%) scale(1); }
-  50% { opacity: 0.8; transform: translateX(-50%) scale(1.1); }
-  100% { opacity: 0.5; transform: translateX(-50%) scale(1); }
-}
-
-/* Morning Sun Animation */
-.sun-animation {
+.social-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 15px;
+  z-index: 999;
+}
+
+.social-btn {
+  width: 50px;
+  height: 50px;
+  background-color: #2E1F1A;
+  border-radius: 50%;
+  display: flex;
   justify-content: center;
-  background: #3A241F;
-  color: #F3E9DC;
-  border-radius: 20px;
-  padding: 40px;
-  min-height: 250px;
-  position: relative;
-  overflow: hidden;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  transition: 0.3s ease;
 }
 
-/* Wooden Window Frame */
-.window {
-  width: 160px;
-  height: 120px;
-  background: #5C3A2E;
-  border: 8px solid #2E1A18;
-  position: relative;
-  margin-bottom: 20px;
-  overflow: hidden;
+.social-btn img {
+  width: 22px;
+  filter: invert(90%) sepia(20%) saturate(200%) hue-rotate(330deg);
 }
 
-/* Cross window lines */
-.window::before,
-.window::after {
-  content: "";
+.social-btn:hover {
+  transform: scale(1.1);
+  background-color: #8D6E63;
+}
+
+.whatsapp {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(215,168,110,0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(215,168,110,0); }
+  100% { box-shadow: 0 0 0 0 rgba(215,168,110,0); }
+}
+
+/* Make header relative so hamburger can position inside it */
+.site-header {
+  position: relative;
+}
+
+/* Position hamburger top-right */
+.hamburger {
   position: absolute;
-  background: #2E1A18;
+  top: 25px;
+  right: 25px;
 }
 
-.window::before {
-  width: 100%;
-  height: 6px;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
+@keyframes headerReveal {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-.window::after {
-  height: 100%;
-  width: 6px;
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
+.site-header {
+  animation: headerReveal 1.5s ease-out forwards;
 }
 
-/* === Cinematic Morning Sun Section === */
+.logo-wrapper {
+  animation: fadeUp 1.5s ease forwards;
+}
 
-.sun-animation {
-  grid-column: 1 / -1;
-  position: relative;
-  padding: 100px 20px;
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================= */
+/* PRODUK LAYOUT */
+/* ========================= */
+
+.produk-section {
+  padding: 100px 60px;
+}
+
+.produk-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 60px;
+  justify-content: center;     /* Desktop centered */
+  align-items: flex-start;
+  overflow-x: auto;
+}
+
+.produk-card {
+  flex: 0 0 350px;         /* fixed width */
   text-align: center;
-  background: linear-gradient(to top, #2E1A18, #4B2E2B);
-  color: #F5E6CA;
-  border-radius: 30px;
-  overflow: hidden;
 }
 
-/* Window Frame */
-.window {
-  width: 200px;
-  height: 160px;
-  background: #5C3A2E;
-  border: 10px solid #2E1A18;
-  margin: 0 auto 30px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-/* Window Cross */
-.window::before,
-.window::after {
-  content: "";
-  position: absolute;
-  background: #2E1A18;
-  z-index: 5;
-}
-
-.window::before {
+.produk-card img {
   width: 100%;
-  height: 8px;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
+  height: 250px;           /* fixed height for all */
+  object-fit: cover;       /* crop nicely without distortion */
+  border-radius: 10px;
+  margin-bottom: 25px;
 }
 
-.window::after {
-  height: 100%;
-  width: 8px;
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
+.produk-card h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #D7A86E;              /* warm gold */
 }
 
-/* Sun */
-.sun {
-  position: absolute;
-  bottom: -60px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 80px;
-  background: radial-gradient(circle, #FFD27D 0%, #FFA500 70%);
-  border-radius: 50%;
-  animation: sunrise 6s ease-in-out infinite alternate;
-  box-shadow: 0 0 40px rgba(255,180,90,0.7);
+.produk-card p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #F3E5AB;              /* cream */
 }
 
-/* Rays */
-.sun-rays {
-  position: absolute;
-  bottom: -60px;
-  left: 50%;
-  width: 140px;
-  height: 140px;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,204,120,0.4) 0%, transparent 70%);
-  animation: raysPulse 4s ease-in-out infinite;
+/* ========================= */
+/* PRODUK TAGLINE */
+/* ========================= */
+
+.produk-main {
+  margin-top: 60px;      /* Space from navbar */
 }
 
-/* Animation: Sun Rising */
-@keyframes sunrise {
-  0% {
-    bottom: -60px;
+.produk-tagline {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 80px auto;
+  padding: 0 20px;
+}
+
+/* Brand Name Styling in Produk Page */
+
+.produk-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.brand-nilam {
+  font-family: 'EB Garamond', serif;   /* same as header */
+  font-weight: 800;
+  font-size: 36px;
+  color: #F3E5AB;
+}
+
+.brand-brothers {
+  font-family: 'Pacifico', cursive;    /* script font */
+  font-size: 30px;
+  color: #D7A86E;
+}
+
+.produk-tagline h1 {
+  font-size: 38px;
+  margin-bottom: 4px;
+  color: #D7A86E;
+}
+
+.produk-tagline h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #F3E5AB;
+}
+
+.produk-tagline p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #EED9A0;
+}
+
+/* Mobile Adjustment */
+@media (max-width: 768px) {
+
+  .produk-main {
+    margin-top: 40px;
   }
-  100% {
-    bottom: 40px;
-  }
-}
 
-/* Rays Pulse */
-@keyframes raysPulse {
-  0% {
-    opacity: 0.5;
-    transform: translateX(-50%) scale(1);
+  .produk-tagline h1 {
+    font-size: 30px;
   }
-  50% {
-    opacity: 0.9;
-    transform: translateX(-50%) scale(1.2);
-  }
-  100% {
-    opacity: 0.5;
-    transform: translateX(-50%) scale(1);
-  }
-}
 
-.sun-sub {
-  letter-spacing: 3px;
-  font-size: 13px;
-  color: #D6B370;
-}
-
-@media (max-width: 480px) {
-
-  .brand-name {
+  .produk-tagline h2 {
     font-size: 26px;
   }
 
-  .logo1 {
-    width: 100px;
-    height: 100px;
-  }
-
-  .top-text {
-    font-size: 12px;
-  }
-
-  .est {
-    font-size: 12px;
+  .produk-tagline p {
+    font-size: 16px;
   }
 
 }
+
+/* ========================= */
+/* RESPONSIVE DESIGN */
+/* ========================= */
+
+.produk-container {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.produk-card {
+  scroll-snap-align: start;
+}
+
+@media (max-width: 768px) {
+
+  .produk-section {
+    padding: 60px 0;
+  }
+
+  .produk-container {
+    justify-content: flex-start;      /* important for scrolling */
+    padding-left: 50%;
+    padding-right: 50%;
+    scroll-snap-type: x mandatory;
+  }
+
+  .produk-card {
+    flex: 0 0 280px;
+    scroll-snap-align: center;       /* center each slide */
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .mobile-social {
+    display: block;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  /* Logo Section */
+  .logo-wrapper {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .logo1 {
+    width: 70px;
+    height: 70px;
+  }
+
+  .nilam {
+    font-size: 32px;
+  }
+
+  .brothers {
+    font-size: 22px;
+  }
+
+  /* Navbar */
+  .nav-menu {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .nav-menu a {
+    font-size: 20px;
+  }
+
+  /* Slogan */
+  .slogan h2 {
+    font-size: 22px;
+    padding: 0 20px;
+  }
+
+  /* Coffee Cup */
+  .coffee-cup {
+    width: 180px;
+  }
+
+  /* Social Buttons */
+  .social-float {
+    right: 15px;
+    bottom: 15px;
+  }
+
+  .social-btn {
+    width: 45px;
+    height: 45px;
+  }
+
+  .social-btn img {
+    width: 18px;
+  }
+
+  /* Reduce coffee beans for performance */
+  .bean {
+    width: 10px;
+    height: 14px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  body {
+    padding-bottom: 100px;
+  }
+
+  .coffee-section {
+    padding: 30px 0;
+  }
+
+}
+
+/* ========================= */
+/* HAMBURGER NAVBAR */
+/* ========================= */
+
+/* Hamburger Hidden on Desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+  position: absolute;
+  right: 20px;
+  top: 0;
+  padding: 20px;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background-color: #F3E5AB;
+  transition: 0.3s;
+}
+
+/* Mobile Style */
+@media (max-width: 768px) {
+
+  .nav-menu {
+    position: fixed;
+    inset: 0;
+    background-color: #2E1F1A;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    display: none;
+    z-index: 1000;
+    animation: fadeMenu 0.4s ease;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+    z-index: 1100;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+}
+
+@keyframes fadeMenu {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .social-float {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+}
+
+.mobile-social {
+  margin-top: 40px;
+  list-style: none;
+}
+
+.mobile-social-wrapper {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+}
+
+.mobile-social-wrapper img {
+  width: 26px;
+  filter: invert(90%) sepia(20%) saturate(200%) hue-rotate(330deg);
+  transition: 0.3s;
+}
+
+.mobile-social-wrapper img:hover {
+  transform: scale(1.2);
+}
+
+
